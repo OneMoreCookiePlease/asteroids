@@ -1,15 +1,17 @@
 #include "game.hpp"
 Game::Game(/* args */)
 {
+    create_main_window();
 }
 
 Game::~Game()
 {
+    m_window.close();
 }
 
 int Game::run()
 {
-    create_main_window();
+    
 
     while (m_is_running)
     {
@@ -18,7 +20,6 @@ int Game::run()
         {
             if (event.type == sf::Event::Closed)
             {
-                m_window.close();
                 quit();
             }
         }
