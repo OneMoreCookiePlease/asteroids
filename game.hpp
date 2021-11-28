@@ -2,12 +2,16 @@
 #include "SFML/Graphics.hpp"
 #include "SFML/Window.hpp"
 
+#include "utils.hpp"
+#include "object.hpp"
+
 class Game final
-{
+{ 
 private:
     bool m_is_running = true;
     int m_exit_code;
     float m_minimum_d_time = 0;
+    std::vector<Object>objects;
     sf::RenderWindow m_window;
 
 public:
@@ -15,6 +19,7 @@ public:
     ~Game();
 
     int run();
+    void draw();
     void quit(int exit_code = 0);
     void create_main_window();
 

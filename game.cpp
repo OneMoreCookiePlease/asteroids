@@ -1,5 +1,5 @@
 #include "game.hpp"
-Game::Game(/* args */)
+Game::Game()
 {
     create_main_window();
 }
@@ -10,9 +10,7 @@ Game::~Game()
 }
 
 int Game::run()
-{
-    
-
+{  
     while (m_is_running)
     {
         sf::Event event;
@@ -24,10 +22,19 @@ int Game::run()
             }
         }
         m_window.clear();
+        draw();
         m_window.display();
     }
 
     return 1;
+}
+
+void Game::draw(){
+    for (auto &&obj : objects)
+    {
+        m_window.draw(obj);
+    }
+    
 }
 
 void Game::create_main_window()
